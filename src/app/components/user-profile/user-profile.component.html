@@ -1,0 +1,51 @@
+<form [formGroup]="userProfileForm">
+  <div class='row'>
+    <div class='col-md-3 mx-auto'>
+      <h2 class='product-header'>Thông tin người dùng</h2>
+      <div class='mb-3'>
+        <label for='name' class='form-label'>Họ và tên</label>
+        <input type='text' class='form-control' id='name' name='fullname' formControlName='fullname'
+          [class.in-valid]="userProfileForm.get('fullname')!.invalid && userProfileForm.get('fullname')!.touched" />
+        <div *ngIf="userProfileForm.get('fullname')!.invalid && userProfileForm.get('fullname')!.touched"
+          class='invalid-feedback'>Họ và tên là trường bắt buộc</div>
+      </div>
+      <div class='mb-3'>
+        <label for='address' class='form-label'>Address</label>
+        <input type='text' formControlName='address' class='form-control' id='address' name='address'
+          [class.in-valid]="userProfileForm.get('address')!.invalid && userProfileForm.get('address')!.touched" />
+        <div *ngIf="userProfileForm.get('address')!.invalid && userProfileForm.get('address')!.touched"
+          class='invalid-feedback'>
+          Address phải có 3 kí tự trở lên</div>
+      </div>
+      <div class='mb-3'>
+        <label for='dateOfBirth' class='form-label'>Date Of Birth</label>
+        <input type='date' formControlName='date_of_birth' placeholder='Ghi chú' class='form-control'
+          id='dateOfBirth' />
+      </div>
+      <div class='mb-3'>
+        <label for='password' class='form-label'>Password</label>
+        <input type='text' formControlName='password' class='form-control' id='password' name='password'
+          [class.in-valid]="userProfileForm.get('password')!.invalid && userProfileForm.get('password')!.touched" />
+        <div *ngIf="userProfileForm.get('password')!.invalid && userProfileForm.get('password')!.touched"
+          class='invalid-feedback'>
+          Mật khẩu phải có 3 kí tự trở lên</div>
+      </div>
+      <div class='mb-3'>
+        <label for='retypePassword' class='form-label'>Retype Password</label>
+        <input type='text' formControlName='retype_password' class='form-control' id='retypePassword'
+          name='retype_password'
+          [class.in-valid]="userProfileForm.get('retype_password')!.invalid && userProfileForm.get('retype_password')!.touched" />
+        <div *ngIf="userProfileForm.get('retype_password')!.invalid && userProfileForm.get('retype_password')!.touched"
+          class='invalid-feedback'>
+          Mật khẩu nhập lại phải có 3 kí tự trở lên</div>
+      </div>
+      <div class='mt-3'>
+        <div class='text-center mt-3'>
+          <button class='btn btn-gradient' (click)='save()'>Lưu thông tin</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</form>
